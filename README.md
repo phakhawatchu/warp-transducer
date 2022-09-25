@@ -67,7 +67,16 @@ Make sure that warp-transducer is not installed (by simply run)
 pip3 uninstall warprnnt-tensorflow
 ```
 
-Install latest TensorFlow 2 (has been tested on python==3.10 & tensorflow==2.10)
+Install latest TensorFlow 2. The following has been tested.
+
+| **Python** | **tensorflow_cpu** | **Working** |
+| ---------- | ------------------ | ----------- |
+| <= 3.6     | any                | No          |
+| 3.7 - 3.9  | <= 2.6.x           | No          |
+|            | 2.7.x              | Yes         |
+|            | 2.8.x              | Yes         |
+|            | >= 2.9.x           | No          |
+| >= 3.10    | any                | No          |
 
 ```sh
 pip install tensorflow
@@ -89,6 +98,12 @@ export CUDA_HOME=/usr/local/cuda && ./build_rnnt.sh
 
 The C library should now be built along with test executables. If CUDA was detected, then `test_gpu` will be built;
 `test_cpu` will always be built.
+
+Sometimes, you may have asked to downgrade protobuf version, please run the following:
+
+```sh
+pip install protobuf==3.20
+```
 
 ## Test
 
