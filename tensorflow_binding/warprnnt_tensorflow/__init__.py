@@ -41,8 +41,8 @@ def _RNNTLossGrad(op, grad_loss, _):
     grad_loss = tf.reshape(grad_loss, (-1, 1, 1, 1))
     return [grad_loss * grad, None, None, None]
 
-@ops.RegisterShape("WarpRNNT")
-def _RNNTLossShape(op):
-    inputs_shape = op.inputs[0].get_shape().with_rank(4)
-    batch_size = inputs_shape[0]
-    return [batch_size, inputs_shape]
+# @ops.RegisterShape("WarpRNNT")
+# def _RNNTLossShape(op):
+#     inputs_shape = op.inputs[0].get_shape().with_rank(4)
+#     batch_size = inputs_shape[0]
+#     return [batch_size, inputs_shape]
